@@ -17,8 +17,8 @@ void calculator(){
 	//the following line reads in two floats for the numbers and a character inbetween the floats to signify the operation
 	scanf("%f %c %f", &num1, &op, &num2);
 
-	//notifies the user of what was selected (helps debugging)
-	printf("%f selected as num. %c selected as op, %f selected as second num ", num1, op, num2);
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
 
 	//defines a variable used to store the result
 	float result;
@@ -76,18 +76,21 @@ void heightCategorize(){
     printf("Please enter your height in centimeters: ");
     scanf("%f", &height);
 
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
+
 	//if statement to categorize the user
     if (height < 168.0){
 		//if height is less than 168, print telling the user they are short
-        printf("You are short!");
+        printf("\nYou are short!");
     }
     else if (height < 178.0){
 		//if the height is greater than 168 and less than 178, print telling the user they are average height
-        printf("You are average height");
+        printf("\nYou are average height");
     }
     else {
 		//if the height is greater than 178, print telling user they are very tall
-        printf("You are very tall!");
+        printf("\nYou are very tall!");
     }   
 }
 
@@ -97,11 +100,14 @@ void createPrimes(){
     int limit;
 
 	//the following two lines ask the user for the limit and then store it as an int
-    printf("Please enter the upper limit of the list of primes: ");
+    printf("\nPlease enter the upper limit of the list of primes: ");
     scanf("%d", &limit);
 	
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');	
+
 	//print marking the beginning of the list of primes
-    printf("List of primes is: ");
+    printf("\nList of primes is: ");
 	
 	//defines a boolean that will act as a flag marking that a number is a prime
     bool isPrime;
@@ -140,11 +146,14 @@ void convertToBinary(){
 	int decimalVal;
 
 	//The following two lines asks for a hexadecimal value and stores it as hexIn
-	printf("Enter a hexadecimal number: ");
+	printf("\nEnter a hexadecimal number: ");
 	scanf("%s", hexIn);
+	
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
 
 	//confirms the hex value read in to the user
-	printf("Hex read in as: %s\n", hexIn);
+	printf("\nHex read in as: %s\n", hexIn);
 
 	//defines an int that represents the current value of the hexadecimal value, and an int to store what digit the current digit is(for equation to convert hex to decimal)
 	int curVal = 0, iterator = 0;
@@ -227,7 +236,7 @@ void convertToBinary(){
 		iterator = iterator + 1;
 	}
 	//print the decimal value of the hex input, and print the decimal value as a binary number using %b
-	printf("Decimal val: %d, Binary value : %b\n", decimalVal, decimalVal);
+	printf("\nDecimal val: %d, Binary value : %b\n", decimalVal, decimalVal);
 }
 
 //defines part of the solution to problem 4
@@ -236,11 +245,14 @@ void convertToHex(){
 	int binaryIn, decimalVal = 0;
 
 	//the following two lines ask for the binary number and store it in binaryIn
-	printf("Enter a binary num: ");
+	printf("\nEnter a binary num: ");
 	scanf("%d", &binaryIn);
+
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
 	
 	//confirms that the binary value was read in correctly
-	printf("Binary val read in %d: ", binaryIn);
+	printf("\nBinary val read in %d: ", binaryIn);
 
 	//defines a var that stores the cur binary digit and the location of the digit as a number
 	int curDigit, placeVal = 0;
@@ -261,7 +273,7 @@ void convertToHex(){
 	}
 	
 	//prints the decimal value represented by the binary input and then prints that value as a hexadecimal number using %x
-	printf("Decimal val: %d, Hexadecimal value : %x", decimalVal, decimalVal);
+	printf("\nDecimal val: %d, Hexadecimal value : %x\n", decimalVal, decimalVal);
    
 }
 
@@ -271,7 +283,13 @@ void conversion(){
 	char in;
 
 	//the following two lines ask the user if they want to convert from binary or from hex and stores it in a variable
-	printf("Enter b if you want to convert from binary or h if you want to convert from hexadecimal");
+	printf("\nEnter b if you want to convert from binary or h if you want to convert from hexadecimal: ");
+	
+	//stores input in in var
+	scanf("%c", &in);
+
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
 
 	//converts in to a lowercase version of itself
 	in = tolower(in);
@@ -351,7 +369,7 @@ void dupeProblem(){
 	size_t length = sizeof(nums)/sizeof(nums[0]);
 	
 	//print statement marking beginning of array
-	printf("Array is: {");
+	printf("\nArray is: {");
 
 	//starts a for loop that will iterate through each index of nums
 	for (int i = 0; i < length; i++){
@@ -386,10 +404,14 @@ void lengthProblem(){
 	char in[1000];
 
 	//the following two lines ask the user for a string to obtain the length of and then stores that string
-	printf("Please enter a string: ");
+	printf("\nPlease enter a string: ");
 	scanf("%s", in);
 	
-	printf("The length of %s is %d", in, getLength(in));
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
+	
+	//print statement returning length of entered string
+	printf("\nThe length of %s is %d\n", in, getLength(in));
 }
 
 //defines the function that solves problem 7
@@ -404,9 +426,10 @@ void calculatorExtended(){
 
 	//obtains the numbers and operator entered by the user. num 2 will become 0 if the user enters sqrt, ceil, or floor and op will become the first letter of word input (s for sqrt, c for ceil, f for floor)
 	scanf("%f %c %f", &num1, &op, &num2);
+
+	//clears the input buffer of newline characters
+	while ((getchar()) != '\n');
 	
-	//confirms the user input into the program
-	printf("%f selected as num. %c selected as op, %f selected as second num \n", num1, op, num2);
 
 	//defines a float that will store the result
 	float result;
@@ -487,6 +510,9 @@ int main(){
 		//the following two lines tell the user how to enter input, asks them for input, and then stores that input
 		printf("\nEnter your choice for problem to solve (1 for problem 1, 2 for problem 2, ... , 7 for problem 7, exit to exit: \n");
 		scanf("%c", &input);
+
+		//clears the input buffer of newline characters
+		while ((getchar()) != '\n');
 
 		//begins a switch statement with input
 		switch (input){
